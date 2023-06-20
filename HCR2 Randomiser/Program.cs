@@ -15,7 +15,7 @@ namespace HCR2_Randomiser
             while (rerun)
             {
                 Console.WriteLine("");
-                Console.WriteLine(" __Randomised HCR2__");
+                Console.WriteLine(" --- HCR2 Adventure Randomiser --- ");
                 Console.WriteLine("");
 
                 List<string> ChosenCar = new List<string>() {
@@ -53,7 +53,7 @@ namespace HCR2_Randomiser
                 string RandomisedCar = ChosenCar[CarIndex];
                 ChosenCar.RemoveAt(CarIndex);
 
-                Console.WriteLine($" Chosen car: {RandomisedCar}");
+                Console.WriteLine($" Chosen Car: {RandomisedCar}");
                 Console.WriteLine("");
 
                 //-----------------------------------------------------
@@ -135,7 +135,9 @@ namespace HCR2_Randomiser
                     Console.WriteLine(" - " + PickedPart);
                 }
 
-                Console.WriteLine("\n __Made By AgileVFX for Patbrick__");
+                Console.WriteLine("\n --- Made By AgileVFX for Patbrick --- ");
+                Console.WriteLine(" - https://www.youtube.com/@patbrick ");
+                Console.WriteLine(" - https://www.youtube.com/@AgileVFX_ ");
                 Console.WriteLine("\n Press the 'Enter' key to rerun..");
                 rerun = Console.ReadKey().Key == ConsoleKey.Enter;
                 Console.WriteLine("");
