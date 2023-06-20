@@ -10,10 +10,15 @@ namespace HCR2_Randomiser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(" _Randomised HCR2_");
-            Console.WriteLine("");
+            bool rerun = true;
 
-            List<string> ChosenCar = new List<string>() {
+            while (rerun)
+            {
+                Console.WriteLine("");
+                Console.WriteLine(" __Randomised HCR2__");
+                Console.WriteLine("");
+
+                List<string> ChosenCar = new List<string>() {
 
             "Hill Climber",
             "Scooter",
@@ -43,17 +48,17 @@ namespace HCR2_Randomiser
             "Moonlander",
              };
 
-            Random RandCar = new Random();
-            int CarIndex = RandCar.Next(ChosenCar.Count);
-            string RandomisedCar = ChosenCar[CarIndex];
-            ChosenCar.RemoveAt(CarIndex);
+                Random RandCar = new Random();
+                int CarIndex = RandCar.Next(ChosenCar.Count);
+                string RandomisedCar = ChosenCar[CarIndex];
+                ChosenCar.RemoveAt(CarIndex);
 
-            Console.WriteLine($" Chosen car: {RandomisedCar}");
-            Console.WriteLine("");
+                Console.WriteLine($" Chosen car: {RandomisedCar}");
+                Console.WriteLine("");
 
-            //-----------------------------------------------------
+                //-----------------------------------------------------
 
-            List<string> ChosenMap = new List<string>() {
+                List<string> ChosenMap = new List<string>() {
             "Countryside",
             "Forest",
             "City",
@@ -71,22 +76,22 @@ namespace HCR2_Randomiser
             "Canyon Arena",
              }; // you can add more maps following the same format
 
-            Random RandMap = new Random();
-            int MapIndex = RandMap.Next(ChosenMap.Count);
-            string RandomisedMap = ChosenMap[MapIndex];
-            ChosenMap.RemoveAt(MapIndex);
+                Random RandMap = new Random();
+                int MapIndex = RandMap.Next(ChosenMap.Count);
+                string RandomisedMap = ChosenMap[MapIndex];
+                ChosenMap.RemoveAt(MapIndex);
 
-            Console.WriteLine($" Chosen Map: {RandomisedMap}");
-            Console.WriteLine("");
+                Console.WriteLine($" Chosen Map: {RandomisedMap}");
+                Console.WriteLine("");
 
-            //-----------------------------------------------------
+                //-----------------------------------------------------
 
-            Random RandNumOfParts = new Random();
-            int MaxParts = RandNumOfParts.Next(4);
-            Console.WriteLine($" Number Of Parts: {MaxParts}");
-            Console.WriteLine("");
+                Random RandNumOfParts = new Random();
+                int MaxParts = RandNumOfParts.Next(4);
+                Console.WriteLine($" Number Of Parts: {MaxParts}");
+                Console.WriteLine("");
 
-            List<string> ListOfParts = new List<string>{
+                List<string> ListOfParts = new List<string>{
             "Magnet",
             "Heavyweight",
             "Wings",
@@ -107,31 +112,35 @@ namespace HCR2_Randomiser
             "Coin Boost",
              };
 
-            List<string> PickedParts = new List<string>();
+                List<string> PickedParts = new List<string>();
 
-            Console.WriteLine(" Picked parts: ");
+                Console.WriteLine(" Picked parts: ");
 
-            for (int i = 0; i < MaxParts; i++)
-            {
-                if (ListOfParts.Count == 0)
+                for (int i = 0; i < MaxParts; i++)
                 {
-                    Console.WriteLine(" - N/A");
-                    break;
+                    if (ListOfParts.Count == 0)
+                    {
+                        Console.WriteLine(" - N/A");
+                        break;
+                    }
+
+                    int randomIndex = RandNumOfParts.Next(0, ListOfParts.Count);
+                    string PickedPart = ListOfParts[randomIndex];
+                    PickedParts.Add(PickedPart);
+                    ListOfParts.RemoveAt(randomIndex);
                 }
 
-                int randomIndex = RandNumOfParts.Next(0, ListOfParts.Count);
-                string PickedPart = ListOfParts[randomIndex];
-                PickedParts.Add(PickedPart);
-                ListOfParts.RemoveAt(randomIndex);
-            }
+                foreach (var PickedPart in PickedParts)
+                {
+                    Console.WriteLine(" - " + PickedPart);
+                }
 
-            foreach (var PickedPart in PickedParts)
-            {
-                Console.WriteLine(" - " + PickedPart);
+                Console.WriteLine("\n __Made By AgileVFX for Patbrick__");
+                Console.WriteLine("\n Press the 'Enter' key to rerun..");
+                rerun = Console.ReadKey().Key == ConsoleKey.Enter;
+                Console.WriteLine("");
+                Console.WriteLine("-----------------------------------------------------");
             }
-
-            Console.WriteLine("\n _Made By AgileVFX for Patbrick_");
-            Console.ReadKey();
         }
     }
 }
