@@ -135,6 +135,16 @@ namespace HCR2_Randomiser
                     Console.WriteLine(" - " + PickedPart);
                 }
 
+                Console.WriteLine("");
+
+                int minValue = 3000;
+                int maxValue = 8000;
+
+                Random random = new Random();
+                int targetdistance = random.Next(minValue, maxValue + 1);
+
+                Console.WriteLine($" Target Distance: {targetdistance}m");
+
                 Console.WriteLine("\n --- Made By AgileVFX for Patbrick --- ");
                 Console.WriteLine(" - https://www.youtube.com/@patbrick ");
                 Console.WriteLine(" - https://www.youtube.com/@AgileVFX_ ");
