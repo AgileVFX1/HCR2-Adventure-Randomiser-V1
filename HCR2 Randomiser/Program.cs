@@ -81,15 +81,10 @@ namespace HCR2_Randomiser
 
             //-----------------------------------------------------
 
-            List<int> NumOfParts = new List<int>() { 0, 1, 2, 3 };
-
             Random RandNumOfParts = new Random();
-            int PartNumIndex = RandNumOfParts.Next(NumOfParts.Count);
-
-            Console.WriteLine($" Number Of Parts: {PartNumIndex}");
+            int MaxParts = RandNumOfParts.Next(4);
+            Console.WriteLine($" Number Of Parts: {MaxParts}");
             Console.WriteLine("");
-
-            int MaxParts = PartNumIndex;
 
             List<string> ListOfParts = new List<string>{
             "Magnet",
@@ -114,15 +109,21 @@ namespace HCR2_Randomiser
 
             List<string> PickedParts = new List<string>();
 
+            Console.WriteLine(" Picked parts: ");
+
             for (int i = 0; i < MaxParts; i++)
             {
-                int randomIndex = RandNumOfParts.Next(0, NumOfParts.Count);
+                if (ListOfParts.Count == 0)
+                {
+                    Console.WriteLine(" - N/A");
+                    break;
+                }
+
+                int randomIndex = RandNumOfParts.Next(0, ListOfParts.Count);
                 string PickedPart = ListOfParts[randomIndex];
                 PickedParts.Add(PickedPart);
                 ListOfParts.RemoveAt(randomIndex);
             }
-
-            Console.WriteLine(" Picked parts: ");
 
             foreach (var PickedPart in PickedParts)
             {
